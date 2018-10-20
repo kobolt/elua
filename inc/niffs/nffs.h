@@ -2,7 +2,7 @@
 #include "romfs.h"
 #include <string.h>
 #include <errno.h>
-#include "romfiles.h"
+//#include "romfiles.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "ioctl.h"

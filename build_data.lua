@@ -77,6 +77,17 @@ local toolchain_list =
     cross_lua = 'float 64',
     cross_lualong = 'int 32',
     version = '--version'
+  },
+  [ 'rx-gcc' ] = {
+    compile = 'rx-elf-gcc',
+    link = 'rx-elf-ld',
+    asm = 'rx-elf-as',
+    bin = 'rx-elf-objcopy',
+    size = 'rx-elf-size',
+    cross_cpumode = 'little',
+    cross_lua = 'float 64',
+    cross_lualong = 'int 32',
+    version = '--version'
   }
 }
 
@@ -88,7 +99,8 @@ local arch_data = {
   arm = 'little',
   cortexm = 'little',
   avr32 = 'big',
-  i386 = 'little' 
+  i386 = 'little', 
+  rx = 'little', 
 }
 
 -- Toolchain to arch mapping
@@ -96,7 +108,8 @@ local toolchain_map = {
   arm = { 'arm-gcc', 'codesourcery', 'devkitarm', 'arm-eabi-gcc' },
   cortexm = { 'arm-gcc', 'codesourcery', 'devkitarm', 'arm-eabi-gcc' },
   avr32 = { 'avr32-gcc', 'avr32-unknown-none-gcc' },
-  i386 =  { 'i686-gcc' }
+  i386 =  { 'i686-gcc' },
+  rx = { 'rx-gcc' }
 }
 
 -- List of platform/CPU combinations
@@ -117,6 +130,7 @@ local platform_list =
   lpc24xx = { cpus = { 'LPC2468' }, arch = 'arm' },
   lpc17xx = { cpus = { 'LPC1768', 'LPC1769' }, arch = 'cortexm' },
   xmc4000 = { cpus = { 'XMC4400F100X512', 'XMC4500F144K1024', 'XMC4500E144K1024', 'XMC4700F144K2048' }, arch = 'cortexm' },
+  rx = { cpus = { 'RX63N' }, arch = 'rx' },
 }
 
 -- Returns the platform of a given CPU

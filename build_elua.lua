@@ -347,7 +347,7 @@ end
 if comp.boot == 'luarpc' then addm( "ELUA_BOOT_RPC" ) end
 if comp.target == 'lualong' or comp.target == 'lualonglong' then addm( "LUA_NUMBER_INTEGRAL" ) end
 if comp.target == 'lualonglong' then addm( "LUA_INTEGRAL_LONGLONG" ) end
-if comp.target ~= 'lualong' and comp.target ~= "lualonglong" then addm( "LUA_PACK_VALUE" ) end
+-- if comp.target ~= 'lualong' and comp.target ~= "lualonglong" then addm( "LUA_PACK_VALUE" ) end -- DOES NOT WORK FOR RX CPU!
 if bd.get_endianness_of_platform( platform ) == "big" then addm( "ELUA_ENDIAN_BIG" ) else addm( "ELUA_ENDIAN_LITTLE" ) end
 
 -- Special macro definitions for the SIM target

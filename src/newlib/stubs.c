@@ -178,7 +178,7 @@ _ssize_t _read_r( struct _reent *r, int file, void *ptr, size_t len )
   return pinst->pdev->p_read_r( r, DM_GET_FD( file ), ptr, len, pinst->pdata );
 }
 
-_ssize_t read( int file, void *ptr, size_t len )
+int read( int file, void *ptr, size_t len )
 {
   return _read_r( _REENT, file, ptr, len );
 }
@@ -201,7 +201,7 @@ _ssize_t _write_r( struct _reent *r, int file, const void *ptr, size_t len )
   return pinst->pdev->p_write_r( r, DM_GET_FD( file ), ptr, len, pinst->pdata );
 }
 
-_ssize_t write( int file, const void *ptr, size_t len )
+int write( int file, const void *ptr, size_t len )
 {
   return _write_r( _REENT, file, ptr, len );
 }
